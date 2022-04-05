@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>From Giphy:</h1>
+    <form
+    method="get" 
+    action="/search">
+        <label for="q">Phrase:</label>
+        <input style="width:200px" type="text" name="q" id="q">
+        <br>
+        <label for="limit">Limit:</label>
+        <select id="limit" name="limit">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="15">15</option>
+            <option value="20">20</option>
+        </select>
+        <br>
+        <label for="rating">Rating:</label>
+        <select id="rating" name="rating">
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG-13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+        <br>
+    <input type="submit">
+</form>
+</body>
+</html>
