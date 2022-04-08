@@ -19,3 +19,23 @@ jobs:
         maven-version: '3.8.4'
     - name: Run test
       run: mvn clean verify
+    - name: Generate coverage badge
+      uses: cicirello/jacoco-badge-generator@v2
+    - name: Upload coverage badge to DigitalOcean spaces
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        access_key: ${{ secrets.access_key }}
+        secret_key: ${{ secrets.secret_key }}
+        space_name: bigtimemk
+        space_region: sgp1
+        source: .github/badges/jacoco.svg
+        out_dir: coverage/${{ github.event.repository.name }}
+    - name: Upload coverage report
+      uses: BetaHuhn/do-spaces-action@v2
+      with:
+        access_key: ${{ secrets.access_key }}
+        secret_key: ${{ secrets.secret_key }}
+        space_name: bigtimemk
+        space_region: sgp1
+        source: target/site/jacoco
+        out_dir: coverage/${{ github.event.repository.name }}/report
